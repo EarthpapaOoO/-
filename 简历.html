@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈崧 - 软件工程专业</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .title {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-left: 5px solid var(--secondary);
+            padding-left: 1rem;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--secondary);
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--secondary);
+            color: white;
+            border-radius: 20px;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">陈崧</h1>
+            <p class="subtitle">湘潭大学 - 软件工程专业（大二）</p>
+        </header>
+
+        <section>
+            <h2><i class="fas fa-code"></i> 技术栈</h2>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <h3>精通</h3>
+                    <div class="tech-badge">Python</div>
+                    <div class="tech-badge">Java</div>
+                    <div class="tech-badge">C++</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>熟悉</h3>
+                    <div class="tech-badge">JavaScript</div>
+                    <div class="tech-badge">HTML/CSS</div>
+                    <div class="tech-badge">Bash</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-tools"></i> 开发工具</h2>
+            <div class="tech-badge">Git</div>
+            <div class="tech-badge">Vim</div>
+            <div class="tech-badge">Tmux</div>
+            <div class="tech-badge">Makefile</div>
+            <div class="tech-badge">Nginx</div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-server"></i> 项目经验</h2>
+            <div class="skill-card">
+                <h3>阿里云流媒体服务器</h3>
+                <p>基于 Ubuntu 22.04 + Nginx + SRS 实现</p>
+                <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                    <li>搭建直播/屏幕共享系统</li>
+                    <li>实现5秒低延迟推流</li>
+                    <li>Nginx反向代理配置</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-robot"></i> 开发工具</h2>
+            <div class="tech-badge">VS Code</div>
+            <div class="tech-badge">通义灵码</div>
+            <div class="tech-badge">DeepSeek</div>
+        </section>
+    </div>
+
+    <script>
+        // 滚动动画效果
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight * 0.8) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // 初始化隐藏所有区块
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s ease-out';
+        });
+    </script>
+</body>
+</html>
